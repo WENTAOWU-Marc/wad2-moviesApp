@@ -18,7 +18,7 @@ const MovieCard = props => {
           : "./film-poster-placeholder.png"
       }
     />
-  </Link>
+    </Link>
         <div className="card-body">
           <h4 className="card-title ">{props.movie.title}</h4>
           <p>
