@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"    // CHANGED
-import FavoriteMoviesPage from './pages/favoritesMoviesPage'       // NEWimport "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
+import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"    // CHANGED
+import FavoriteMoviesPage from './pages/favoritesMoviesPage'       // NEW
 
 const App = () => {
   return (
