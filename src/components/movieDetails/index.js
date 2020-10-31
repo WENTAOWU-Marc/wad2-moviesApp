@@ -8,7 +8,7 @@ export default ({ movie }) => {
       <p>{movie.overview}</p>
       <ul className="list-group list-group-horizontal">
         <li key="ruh" className="list-group-item list-group-item-dark">
-          Runtime (min.)
+          Runatime (min.)
         </li>
         <li key="rut" className="list-group-item ">
           {movie.runtime}
