@@ -59,7 +59,7 @@ describe("Home Page", () => {
           const searchString = "xyz";
           const matchingMovies = filterByTitle(movies, searchString);
           cy.get("input").clear().type(searchString);
-          cy.get(".card").should("be undefined", matchingMovies.isArray()==undefined);
+          cy.get(".card").should("have.length", matchingMovies.length);
         })
       })
       describe("By movie genre" ,() => {
@@ -76,5 +76,21 @@ describe("Home Page", () => {
             })
           });
         });
+      describe("By both movie title and movie genre" ,() =>{
+        it("should display movies with 'o' in tiele and with the specified genre", () =>{
+        const searchString = 'o'
+        const selectedGenreId = 35;
+        const selectedGenreText = "Comedy";
+        const matchingTitleMovies = filterByTitle(movies, searchString );          
+        const matchingGenreMovies = filterByGenre(matchingTitleMovies, selectedGenreId);
+        cy.get("select").select(selectedGenreText); 
+        cy.get(".card").should("have.length", matchingGenreMovies.length);
+        cy.get(".card").each(($card, index) => {
+          cy.wrap($card)
+            .find(".card-title")
+            .should("have.text", matchingGenreMovies[index].title);
+      })
     })
+  })
   });
+});
