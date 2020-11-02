@@ -55,6 +55,7 @@ describe("Home Page", () => {
             .should("have.text", matchingMovies[index].title);
           })
         })
+        //have modified but forget to commit 
         it("should throw a exception", () => {
           const searchString = "xyz";
           const matchingMovies = filterByTitle(movies, searchString);
