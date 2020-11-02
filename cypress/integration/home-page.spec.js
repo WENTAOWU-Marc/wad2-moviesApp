@@ -59,7 +59,7 @@ describe("Home Page", () => {
           const searchString = "xyz";
           const matchingMovies = filterByTitle(movies, searchString);
           cy.get("input").clear().type(searchString);
-          cy.get(".card").should("be undefined", matchingMovies.to.be.undefined);
+          cy.get(".card").should("be undefined", matchingMovies.isArray()==undefined);
         })
       })
       describe("By movie genre" ,() => {
@@ -75,7 +75,6 @@ describe("Home Page", () => {
               .should("have.text", matchingMovies[index].title);      
             })
           });
-
         });
     })
   });
