@@ -54,4 +54,11 @@ describe("Movie Details Page", () => {
       .should("have.attr", "href")
       .should("include", movie.homepage);
   });
+
+  it("should display the Home icon with the correct src value", () =>{
+    cy.get(".fa-home")
+    .parent()
+    .should("have.img", "src")
+    .should("include", movie.homepage);
+  });
 });
