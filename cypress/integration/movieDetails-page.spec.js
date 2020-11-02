@@ -56,9 +56,8 @@ describe("Movie Details Page", () => {
   });
 
   it("should display the Home icon with the correct src value", () =>{
-    cy.get(".fa-home")
-    .parent()
-    .should("have.img", "src")
-    .should("include", movie.homepage);
+    cy.get('.movie')
+      .should("have.attr", "src")
+      .should("include", movie.poster_path);
   });
 });
