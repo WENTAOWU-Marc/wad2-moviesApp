@@ -60,6 +60,7 @@ describe("Navigation", () => {
     it("navigate to the full review page when a 'Full Review' link is clicked", () => {
       cy.contains("Show Reviews").click();
       cy.contains("Full Review").click();
+      cy.url().should("include",`reviews`);
     });
   });
 
