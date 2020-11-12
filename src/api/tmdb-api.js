@@ -37,3 +37,12 @@ export const getUpcomingMovies = () =>{
     .then(res => res.json())
     .then(json => json.results);
 };
+
+// export const getActors = () =>{
+//   return fetch(
+//     'https://api.themoviedb.org/3/person/1?api_key=${process.env.REACT_APP_TMDB_KEY}&&language=en-US'
+//   )
+//       // eslint-disable-next-line
+//    .then(res => res.json())
+//    .then(json => json.results);
+// }
