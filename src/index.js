@@ -39,4 +39,5 @@ const App = () => {
  );
 };
 
+//JSX语法
 ReactDOM.render(<App />, document.getElementById("root"));
