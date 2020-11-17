@@ -58,7 +58,7 @@ e2etest:
     # start the server in the background
    - npm run start:ci
 
- test_jobX:
+test_jobX:
   stage: test
   only:
     - master
