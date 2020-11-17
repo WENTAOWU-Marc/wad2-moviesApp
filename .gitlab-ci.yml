@@ -12,6 +12,7 @@ variables:
    npm_config_cache: "$CI_PROJECT_DIR/.npm"
    CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
 
+
 cache:
    key:
      files:
@@ -28,14 +29,18 @@ install_dependencies:
   stage: install
   script:
     - npm ci
+  artifacts:
+    paths:
+      - node_modules/
 
 bundle_app:
   stage: build
   script:
     - npm run build
-  antifacts:
-  path:
-    - build/
+  artifacts:
+    paths:
+      - build/
+
 
 e2etest:    
   stage: test
