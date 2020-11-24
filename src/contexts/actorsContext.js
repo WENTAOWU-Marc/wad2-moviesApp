@@ -21,12 +21,12 @@ const ActorsContextProvider = (props) => {
       }, []);
 
     return(
-        <MoviesContext.Provider
+        <ActorsContext.Provider
         value ={{
-            actors = state.actors,
+            actors : state.actors,
         }} 
         >
-        </MoviesContext.Provider>
+        </ActorsContext.Provider>
     );
 };
 
