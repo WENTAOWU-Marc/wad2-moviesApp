@@ -4,6 +4,7 @@ import { getActors } from "../api/tmdb-api";
 export const ActorsContext = createContext(null);
 
 const reducer = (state, action) => {
+    // eslint-disable-next-line default-case
     switch(action.type){
         case "load-actors":
             return { actors: action.payload.actors }
