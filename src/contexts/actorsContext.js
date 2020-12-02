@@ -17,7 +17,6 @@ const ActorsContextProvider = (props) => {
 
     useEffect(() => {
         getActors().then((actors) => {
-          console.log(actors)
           dispatch({ type: "load-actors", payload: { actors } });
         });
       }, []);

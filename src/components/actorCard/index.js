@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const ActorCard = ({actor}) => {
 
   return (
+      
     <div className="col-sm-3">
       <div className="card  bg-white">
       <Link to={`/actors/${actor.id}`}>
@@ -23,20 +24,13 @@ const ActorCard = ({actor}) => {
         <div className="card-body">
           <h4 className="card-title ">{actor.name}</h4>
           <p>
-            <FontAwesomeIcon icon={["fas", "calendar"]} />
-            <span> {actor.birthday}</span>
-          </p>
-          <p>
-            <FontAwesomeIcon icon={["fas", "house"]} />
-            <span> {actor.place_of_birth}</span>
-          </p>
-          <p>
             <FontAwesomeIcon icon={["fas", "star"]} />
             <span> {actor.popularity}</span>
           </p>
         </div>
       </div>
     </div>
+    
   );
 };
 

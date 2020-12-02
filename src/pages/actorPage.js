@@ -5,8 +5,6 @@ import {ActorsContext} from '../contexts/actorsContext'
 const ActorListPage = () => {
     const context = useContext(ActorsContext);
     const actors = context.actors;
-    console.log(actors)
-
 
     return (
        <ActorListPageTemplate 
