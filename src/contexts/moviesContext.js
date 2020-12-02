@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies, getUpcomingMovies, getNowPlayingMovies  } from "../api/tmdb-api";
+import { getMovies, getUpcomingMovies  } from "../api/tmdb-api";
 
 export const MoviesContext = createContext(null);
 
@@ -11,7 +11,7 @@ const reducer = (state, action) => {
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
         upcoming: [...state.upcoming],
-        nowplaying: [...state.nowplaying],
+        // nowplaying: [...state.nowplaying],
       };
     case "add-watchlist":
       return{
@@ -29,8 +29,9 @@ const reducer = (state, action) => {
       return { upcoming: action.payload.upcoming, movies: [...state.movies], 
         // nowplaying: [...state.nowplaying]
       };
-    case "load-nowplaying":
-      return { nowplaying: action.payload.nowplaying, movies: [...state.movies],upcoming: [...state.upcoming]}
+    // case "load-nowplaying":
+    //   return { nowplaying: action.payload.nowplaying, movies: [...state.movies],upcoming: [...state.upcoming]
+    //   };
     case "add-review":
       return {
         movies: state.movies.map((m) =>
@@ -77,12 +78,12 @@ const MoviesContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    getNowPlayingMovies().then((nowplaying) => {
-      dispatch({ type: "load-nowplaying", payload: { nowplaying } });
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   getNowPlayingMovies().then((nowplaying) => {
+  //     dispatch({ type: "load-nowplaying", payload: { nowplaying } });
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <MoviesContext.Provider

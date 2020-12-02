@@ -21,5 +21,5 @@ describe("nowplaying page",() => {
       cy.get("h2").contains("Nowplaying Movies");
       cy.get(".badge").contains(20);
     });
-
+  })
 });
