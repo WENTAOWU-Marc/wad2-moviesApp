@@ -16,7 +16,7 @@ const ActorHeader = ({actor, history}) => {
                
             {actor.name}
             {"  "}
-            <a href={movie.homepage}>
+            <a href={actor.homepage}>
             <FontAwesomeIcon icon={["fas", "home"]} size="1x" />
             </a>
             </h2>

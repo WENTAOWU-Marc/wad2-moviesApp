@@ -1,6 +1,6 @@
 import React from "react";
 import ActorHeader from "../headerActor";
-import "./moviePage.css";
+import "./actorPage.css";
 
 const TemplateActorPage = ({ actor, children }) => {
   return (
