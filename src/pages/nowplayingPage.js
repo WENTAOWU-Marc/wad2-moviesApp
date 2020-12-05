@@ -11,7 +11,7 @@ const NowplayingMovieListPage = () => {
   
   return (
       <PageTemplate 
-        title='Nowplaying Movies'
+        title='No. NowplayingMovies'
         movies={movies}
          action={(movie) => {
            return <NowWatchListButton nowplaying={movie} /> 
