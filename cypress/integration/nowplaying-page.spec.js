@@ -1,9 +1,12 @@
 let nowplaying;
 
+const filterByTitle = (movieList, string) =>
+  movieList.filter((m) => m.title.toLowerCase().search(string) !== -1);
+
 describe("nowplaying page",() => {
   before(() =>{
     cy.request(
-        `https://api.themoviedb.org/3/now_playing/movie?api_key=${Cypress.env(
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${Cypress.env(
           "TMDB_KEY"
         )}&language=en-US&page=1`
       )
@@ -15,18 +18,19 @@ describe("nowplaying page",() => {
 
   beforeEach(() => {
     cy.visit("/");
+    cy.get("nav").find("li").eq(3).find("a").click();
   });
   describe("nowplayingpage test", () => {
     it("displays page header", () => {
-      cy.get("h2").contains("Nowplaying Movies");
+      cy.get("h2").contains("No. NowplayingMovies");
       cy.get(".badge").contains(20);
     });
   })
 describe("Filtering", () => {
   describe("By movie title" ,() => {
     it("should display movies with in the title", () => {
-      const searchString = ''
-      const matchingMovies = filterByTitle(movies, searchString );
+      const searchString = 'fat'
+      const matchingMovies = filterByTitle(nowplaying, searchString );
       cy.get("input").clear().type(searchString) ;
       cy.get(".card").should("have.length", matchingMovies.length);
       cy.get(".card").each(($card, index) => {
@@ -34,7 +38,25 @@ describe("Filtering", () => {
         .find(".card-title")
         .should("have.text", matchingMovies[index].title);
       });
-    })
+    });
+    it("should throw a exception", () => {
+  const searchString = "xyz";
+  const matchingMovies = filterByTitle(nowplaying, searchString);
+  cy.get("input").clear().type(searchString);
+  cy.get(".card").should("have.length", matchingMovies.length);
+});
+});
+});
+describe("Button",() =>{
+it("add nowplaying movies" , () => {
+  cy.get(".card").eq(0).find("button").click();
+  cy.get("nav").find("li").eq(5).find("a").click();
+  cy.get("h2").contains("Watch List Movies");
+  cy.get(".card").each(($card) => {
+    cy.wrap($card)
+    .find(".card-title")
+    .should("have.text", "Fatman");
+  });
 })
 });
 });

@@ -78,10 +78,11 @@ describe("Home Page", () => {
           });
         });
       describe("By both movie title and movie genre" ,() =>{
-        it("should display movies with 'o' in tiele and with the specified genre", () =>{
-        const searchString = 'o'
+        it("should display movies with 'f' in tiele and with the specified genre", () =>{
+        const searchString = 'fat';
         const selectedGenreId = 35;
         const selectedGenreText = "Comedy";
+        cy.get("input").clear().type(searchString) ;
         const matchingTitleMovies = filterByTitle(movies, searchString );          
         const matchingGenreMovies = filterByGenre(matchingTitleMovies, selectedGenreId);
         cy.get("select").select(selectedGenreText); 
