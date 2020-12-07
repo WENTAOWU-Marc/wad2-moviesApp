@@ -16,6 +16,7 @@ import ActorListPage from './pages/actorPage';
 import ActorsContextProvider from "./contexts/actorsContext";
 import NowplayingMovieListPage from "./pages/nowplayingPage";
 import ActorPage from './pages/actorDetailsPage';
+import CombinedCreditsPage from './pages/combinedCreditsPage';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Switch>
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
             <Route path="/reviews/:id" component={MovieReviewPage} />
+            <Route exact path="/actors/combinedcredits/:id" component={CombinedCreditsPage} />
             <Route exact path="/actors/actor" component={ActorListPage} />
             <Route exact path="/movies/nowplayings" component={NowplayingMovieListPage} />
             <Route exact path="/movies/watchlist" component={WatchListMoviesPage} />
@@ -39,7 +41,7 @@ const App = () => {
             <Route path="/" component={HomePage} />
             <Redirect from="*" to="/" />
             </Switch>
-            </ActorsContextProvider>
+          </ActorsContextProvider>
           </GenresContextProvider>    {/* NEW */}
         </MoviesContextProvider>     {/* NEW */}
       </div>

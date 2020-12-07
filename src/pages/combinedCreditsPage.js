@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import PageTemplate from '../components/templateMovieListPage'
-import {MoviesContext} from '../contexts/moviesContext'
+import {getCombinedCredits} from '../api/tmdb-api'
 import AddToFavoritesButton from '../components/buttons/addToFavorites'
 
-const CombinedCreditsPage = () => {
-    const context = useContext(MoviesContext);
-    const movies = context.movies;
+const CombinedCreditsPage = (props) => {
+  const {id} =props.match.params;
+  const [movies,SetMovies]=useState([])
+  getCombinedCredits(id).then((res)=>{
+    SetMovies(res)
+  })
 
     return (
         <PageTemplate 
@@ -18,4 +22,4 @@ const CombinedCreditsPage = () => {
     );
 };
 
-export default CombinedCreditsPage ;
+export default withRouter(CombinedCreditsPage) ;

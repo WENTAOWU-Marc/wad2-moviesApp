@@ -29,7 +29,6 @@ const ActorCard = ({actor,action}) => {
         </div>
         <div className="card-footer">
            {action(actor)}
-           
         </div>
       </div>
     </div>

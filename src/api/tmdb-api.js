@@ -66,6 +66,6 @@ export const getCombinedCredits = actorid =>{
     `https://api.themoviedb.org/3/person/${actorid}/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
     )
     .then(res => res.json())
-    .then(json => json.results);
+    .then(json => json.cast);
 }
 

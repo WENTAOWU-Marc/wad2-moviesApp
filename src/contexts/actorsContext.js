@@ -27,6 +27,7 @@ const ActorsContextProvider = (props) => {
       <ActorsContext.Provider
         value ={{
             actors : state.actors,
+            actorId : state.actors.id
         }} 
         >
         {props.children}
