@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ActorHeader from "../headerActorList";
 import ActorList from "../actorList";
 
-const ActorListPageTemplate = ({ actors, name }) => {
+const ActorListPageTemplate = ({ actors, name ,action }) => {
     // const [genderFilter, setgenderFilter] = useState("");
     // const gender = Number(genderFilter)
     let displayedActors = actors;
@@ -21,6 +21,7 @@ const ActorListPageTemplate = ({ actors, name }) => {
           {/* <FilterControls onUserInput={handleChange} numActors={displayedActors.length}/> */}
           <ActorList
            actors={displayedActors}
+           action={action}
           />
         </>
       );

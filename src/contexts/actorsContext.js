@@ -6,7 +6,9 @@ export const ActorsContext = createContext(null);
 const reducer = (state, action) => {
     switch(action.type){
         case "load-actors":
-            return { actors: action.payload.actors }
+            return { actors: action.payload.actors };
+        case "combined-credits":
+            return{};
         default: 
         return state;
     }

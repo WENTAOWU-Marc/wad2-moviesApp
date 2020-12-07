@@ -4,10 +4,9 @@ import "./actorCard.css";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ActorCard = ({actor}) => {
+const ActorCard = ({actor,action}) => {
 
   return (
-      
     <div className="col-sm-3">
       <div className="card  bg-white">
       <Link to={`/actors/${actor.id}`}>
@@ -27,6 +26,10 @@ const ActorCard = ({actor}) => {
             <FontAwesomeIcon icon={["fas", "star"]} />
             <span> {actor.popularity}</span>
           </p>
+        </div>
+        <div className="card-footer">
+           {action(actor)}
+           
         </div>
       </div>
     </div>
