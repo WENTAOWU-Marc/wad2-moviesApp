@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ActorHeader from "../headerActorList";
 import ActorList from "../actorList";
 

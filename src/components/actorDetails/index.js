@@ -13,12 +13,16 @@ export default ({ actor }) => {
             <li key="acb" className="list-group-item ">
               {actor.birthday}
             </li>
+            </ul>
+            <ul className="list-group list-group-horizontal">
             <li key="acp" className="list-group-item list-group-item-dark">
                Place of birth
             </li>
             <li key="acp" className="list-group-item ">
               {actor.place_of_birth}
             </li>
+            </ul>
+            <ul className="list-group list-group-horizontal">
             <li key="acpo" className="list-group-item list-group-item-dark">
                Popularity
             </li>
