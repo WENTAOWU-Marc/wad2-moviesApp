@@ -1,6 +1,6 @@
 
 import React from 'react' ;
-import { useFirebaseApp,useUser } from 'reactfire' ;
+import { useFirebaseApp } from 'reactfire' ;
 import 'firebase/auth';
  
 const Logout = () => {
