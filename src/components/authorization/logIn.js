@@ -22,8 +22,9 @@ const Login = () => {
  
   // Import firebase
   const firebase = useFirebaseApp();
- 
   // Submit function (Log in user)
+  console.log(firebase.auth().currentUser);
+  // console.log(firebase.auth().currentUser.email);
   const handleSubmit = e => {
     e.preventDefault();
     // Log in code here.

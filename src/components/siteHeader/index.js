@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
-// eslint-disable-next-lin
 import { Menu, Dropdown, Button } from 'antd';
-import { DownOutlined, UserOutlined, StarOutlined, VideoCameraOutlined } from '@ant-design/icons';import "antd/dist/antd.css";
+import { DownOutlined, UserOutlined, StarOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import "antd/dist/antd.css";
+import { useUser } from 'reactfire';
 
 function handleMenuClick(e) {
   // message.info("Click on menu item.");
@@ -58,6 +59,14 @@ const preferMenu = (
 );
 
 const SiteHeader = () => {
+  let Login;
+  const user = useUser();
+  if (user == null){
+      Login = "login"
+  }
+  else{
+      Login = user.email
+  }
   return (
     
     <nav className="navbar  navbar-light fixed-top  bg-dark ">
@@ -104,7 +113,7 @@ const SiteHeader = () => {
          <ul className="navbar-nav">
            <li className="nav-item">
             <Link className="nav-link text-white" to="/login">
-              Login
+              Login     
             </Link>
            </li>
          </ul>

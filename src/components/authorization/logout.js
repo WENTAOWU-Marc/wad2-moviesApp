@@ -1,15 +1,18 @@
 
 import React from 'react' ;
-import { useFirebaseApp } from 'reactfire' ;
-import 'firebase/auth'
+import { useFirebaseApp,useUser } from 'reactfire' ;
+import 'firebase/auth';
  
 const Logout = () => {
   // Import firebase
   const firebase = useFirebaseApp();
- 
   // Log out function
   const handleClick = () => {
-    firebase.auth().signOut();
+    firebase.auth().signOut().then(function() {
+      var user = firebase.auth().currentUser;
+      console.log(user)
+      window.location.replace("./");
+    });
   }
  
   return (

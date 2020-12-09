@@ -17,11 +17,16 @@ import ActorsContextProvider from "./contexts/actorsContext";
 import NowplayingMovieListPage from "./pages/nowplayingPage";
 import ActorPage from './pages/actorDetailsPage';
 import CombinedCreditsPage from './pages/combinedCreditsPage';
-import { FirebaseAppProvider } from 'reactfire';
+import { FirebaseAppProvider, useUser } from 'reactfire';
 import firebaseConfig from './firebaseConfig';
 import LoginPage from './pages/loginPage'
 
+
+
 const App = () => {
+  
+  const user = useUser();
+  
   return (
     <BrowserRouter>
     <div className="jumbotron">

@@ -8,7 +8,6 @@ import { useUser } from 'reactfire' ;
 function LoginPage ()  {
     const user = useUser();
     
-    
     return (
       < div className = "App" >
         {
