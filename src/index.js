@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ Suspense } from "react";
 import ReactDOM from "react-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
@@ -17,6 +17,9 @@ import ActorsContextProvider from "./contexts/actorsContext";
 import NowplayingMovieListPage from "./pages/nowplayingPage";
 import ActorPage from './pages/actorDetailsPage';
 import CombinedCreditsPage from './pages/combinedCreditsPage';
+import { FirebaseAppProvider } from 'reactfire';
+import firebaseConfig from './firebaseConfig';
+import LoginPage from './pages/loginPage'
 
 const App = () => {
   return (
@@ -36,6 +39,7 @@ const App = () => {
             <Route exact path="/movies/watchlist" component={WatchListMoviesPage} />
             <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
             <Route exact path="/movies/upcomings" component={UpcomingMoviesPage} />
+            <Route path="/login" component={LoginPage} />
             <Route path="/movies/:id" component={MoviePage} />
             <Route path="/actors/:id" component={ActorPage} />
             <Route path="/" component={HomePage} />
@@ -52,5 +56,12 @@ const App = () => {
 
 //JSX语法
 ReactDOM.render(
-<App />, document.getElementById("root")
+  <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+    <Suspense fallback={<h3>Loading...</h3>}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Suspense>
+  </FirebaseAppProvider>,
+  document.getElementById('root')
 );

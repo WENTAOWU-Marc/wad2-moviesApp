@@ -1,13 +1,11 @@
 
-// src/firebaseConfig.js
-const firebaseConfig = {
-    apiKey : "AIzaSyBSo7NZouVtr-G36eLbFGjXv_IN7cBBn30" ,
-    authDomain : "react-authentication-2c83f.firebaseapp.com" ,
-    databaseURL : "https://react-authentication-2c83f.firebaseio.com" ,
-    projectId : "react-authentication-2c83f" ,
-    storageBucket : "react-authentication-2c83f.appspot.com" ,
-    messagingSenderId : "194995380667" ,
-    appId : "1:194995380667:web:5e5dd9db459ab8a21da49e"
-  }
-   
-  export default firebaseConfig;
+  var firebaseConfig = {
+    apiKey: "AIzaSyD_wjGi9UrY4lgpDKxV81x4XH30MXE4wEg",
+    authDomain: "react-login-b5f89.firebaseapp.com",
+    projectId: "react-login-b5f89",
+    storageBucket: "react-login-b5f89.appspot.com",
+    messagingSenderId: "98492366391",
+    appId: "1:98492366391:web:0f9db3dda01c70bac1c9b2"
+  };
+  
+export default firebaseConfig;

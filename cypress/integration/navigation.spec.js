@@ -35,14 +35,16 @@ describe("Navigation", () => {
       cy.get("h2").contains(movies[1].title);
     });
     it("should allow navigation from site header", () => {
-      cy.get("nav").find("li").eq(4).find("a").click();
+      cy.get("nav").find("nav").find("Button").eq(2).click();
+      cy.contains("Favourite").click();
       cy.url().should("include", `/favorites`);
       cy.get("h2").contains("Favorite Movies");
-      cy.get("nav").find("li").eq(2).find("a").click();
+      cy.get("nav").find("nav").find("Button").eq(0).click();
+      cy.contains("Upcoming").click();      
       cy.url().should("not.include", `/favorites`);
       cy.get("h2").contains("Upcoming Movies");
-      cy.get("nav").find("li").eq(0).find("a").click();
-      cy.get("nav.navbar-brand").find("a").click();
+      cy.get("nav").find("nav").find("Button").eq(0).click();
+      cy.contains("HomePage").click();
       cy.url().should("not.include", `/favorites`);
       cy.get("h2").contains("No. Movies");
     });
