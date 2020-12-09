@@ -30,7 +30,8 @@ describe("Actor Page", () => {
       
     beforeEach(() => {
         cy.visit("/");
-        cy.get("nav").find("li").eq(1).find("a").click();
+        cy.get("nav").find("nav").find("Button").eq(1).click();
+        cy.contains("ActorPage").click();
       });
  
     describe("Actor page test",() => {
@@ -48,9 +49,10 @@ describe("Actor Page", () => {
         });
     }); 
 
-    describe("Actor filter test",() =>{
-       it("", () =>{
-
+    describe("Actor Combined Credits test",() =>{
+       it("should display actor's combined credits", () =>{
+        cy.get(".card").eq(0).find("a.btn").click();
+        cy.get("h2").contains("Combined Credits");
        });
     });
 });
