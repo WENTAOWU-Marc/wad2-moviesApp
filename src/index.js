@@ -20,6 +20,7 @@ import CombinedCreditsPage from './pages/combinedCreditsPage';
 import { FirebaseAppProvider } from 'reactfire';
 import firebaseConfig from './firebaseConfig';
 import LoginPage from './pages/loginPage'
+import Signup from "./components/authorization/signUp";
 
 
 
@@ -44,6 +45,7 @@ const App = () => {
             <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
             <Route exact path="/movies/upcomings" component={UpcomingMoviesPage} />
             <Route path="/login" component={LoginPage} />
+            <Route path='/signup' component={Signup} />
             <Route path="/movies/:id" component={MoviePage} />
             <Route path="/actors/:id" component={ActorPage} />
             <Route path="/" component={HomePage} />

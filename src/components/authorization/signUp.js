@@ -1,17 +1,19 @@
 import React, { useState } from 'react' ;
 import { useFirebaseApp } from 'reactfire' ;
 import 'firebase/auth'
+
+// import './Signup.css' ;
  
 const Signup = () => {
   // User State
   const [user, setUser] = useState({
-    nickname : '' ,
+    nickname : '' , 
     email : '' ,
     password : '' ,
     error : '' ,
   });
  
-  // onChange function
+
   const handleChange = e => {
     setUser({
       ...user,
@@ -19,11 +21,11 @@ const Signup = () => {
       error : '' ,
     })
   };
- 
+
   const firebase = useFirebaseApp();
 
-  // Submit function (Create account)
-  const handleSubmit = async (e) => {
+  // onChange function
+const handleSubmit = async (e) => {
     e.preventDefault();
     // Sign up code here.
     await firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
@@ -50,7 +52,7 @@ const Signup = () => {
               error : error.message,
             })
           })
- 
+          window.location.replace("./login");
         // Sign Out the user.
         firebase.auth().signOut();
       }).catch( error => {

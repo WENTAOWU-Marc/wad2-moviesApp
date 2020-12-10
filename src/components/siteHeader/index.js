@@ -6,7 +6,8 @@ import "./siteHeader.css";
 import { Menu, Dropdown, Button } from 'antd';
 import { DownOutlined, UserOutlined, StarOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
-// import { useUser } from 'reactfire';
+import { useUser } from "reactfire"
+import 'firebase/auth';
 
 function handleMenuClick(e) {
   // message.info("Click on menu item.");
@@ -59,14 +60,7 @@ const preferMenu = (
 );
 
 const SiteHeader = () => {
-  // let Login;
-  // const user = useUser();
-  // if (user == null){
-  //     Login = "login"
-  // }
-  // else{
-  //     Login = user.email
-  // }
+  const user = useUser();
   return (
     
     <nav className="navbar  navbar-light fixed-top  bg-dark ">
@@ -113,7 +107,7 @@ const SiteHeader = () => {
          <ul className="navbar-nav">
            <li className="nav-item">
             <Link className="nav-link text-white" to="/login">
-              Login     
+              {user.data ? user.data.displayName : "login"}
             </Link>
            </li>
          </ul>
