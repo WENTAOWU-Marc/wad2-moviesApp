@@ -18,15 +18,16 @@ describe ("Login Page", () =>{
     });
 
     beforeEach(() => {
-        cy.visit("/");
-        cy.wait(3000);
-      });
+      cy.wait(5000)
+      cy.visit("/");
+      cy.wait(5000)
+    });
     
     describe("Sign up Test",() => {
       it("can't sign up with an existing account", () => {
         cy.get("nav").find("nav").eq(2).click();
         cy.get("a").eq(2).click();
-        cy.wait(1000)
+        cy.wait(5000)
         cy.get("input").eq(0).type(nickname);
         cy.get("input").eq(1).type(email);
         cy.get("input").eq(2).type(password);

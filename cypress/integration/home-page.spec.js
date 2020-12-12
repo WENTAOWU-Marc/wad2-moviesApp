@@ -21,8 +21,9 @@ describe("Home Page", () => {
   })
 
   beforeEach(() => {
+    cy.wait(5000)
     cy.visit("/");
-    cy.wait(3000);
+    cy.wait(5000)
   });
   
     //modify test case
