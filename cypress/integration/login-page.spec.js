@@ -18,9 +18,8 @@ describe ("Login Page", () =>{
     });
 
     beforeEach(() => {
-      cy.wait(5000)
-      cy.visit("/");
-      cy.wait(5000)
+      cy.visit("./");
+      cy.wait(10000);
     });
     
     describe("Sign up Test",() => {
