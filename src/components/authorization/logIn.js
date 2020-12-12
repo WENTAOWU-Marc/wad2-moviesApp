@@ -60,13 +60,12 @@ const Login = () => {
       )
       .catch( error => {
         var errorCode = error.code;
-        var errorMessage = error.message;
+        // var errorMessage = error.message;
         if (errorCode === 'auth/wrong-password') {
           alert('Wrong password.');
         } else {
-          alert(errorMessage);
+          console.log(error);
         }
-        console.log(error);
         // Update the error
         setUser({
           ...user,

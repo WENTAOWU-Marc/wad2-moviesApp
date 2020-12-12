@@ -36,16 +36,16 @@ describe("Actor Page", () => {
  
     describe("Actor page test",() => {
         it("displays page header", () => {
-        cy.get("h2").contains("No. Actors");
-        cy.get(".badge").contains(20);
-          });
+          cy.get("h2").contains("No. Actors");
+          cy.get(".badge").contains(20);
+        });
     });
 
     describe("Actor detail page test",() => {
         it("displays the correct details", () => {
-            cy.get(".card").eq(2).find("img").click();
-        cy.get("h2").contains(actor.name);
-        cy.get("h4").contains("Biography");
+          cy.get(".card").eq(2).find("img").click();
+          cy.get("h2").contains(actor.name);
+          cy.get("h4").contains("Biography");
         });
     }); 
 
