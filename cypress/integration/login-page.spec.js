@@ -19,6 +19,7 @@ describe ("Login Page", () =>{
 
     beforeEach(() => {
         cy.visit("/");
+        cy.wait(3000);
       });
     
     describe("Sign up Test",() => {

@@ -30,6 +30,7 @@ describe("Actor Page", () => {
       
     beforeEach(() => {
         cy.visit("/");
+        cy.wait(3000);
         cy.get("nav").find("nav").find("Button").eq(1).click();
         cy.contains("ActorPage").click();
       });

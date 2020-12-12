@@ -18,6 +18,7 @@ describe("nowplaying page",() => {
 
   beforeEach(() => {
     cy.visit("/");
+    cy.wait(3000);
     cy.get("nav").find("nav").find("Button").eq(0).click();
     cy.contains("Nowplaying").click();
   });
