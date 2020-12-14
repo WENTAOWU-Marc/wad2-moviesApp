@@ -37,6 +37,7 @@ describe("Navigation", () => {
     });
     it("should allow navigation from site header", () => {
       cy.get("nav").find("nav").find("Button").eq(2).click();
+      cy.wait(3000);
       cy.contains("Favourite").click();
       cy.url().should("include", `/favorites`);
       cy.get("h2").contains("Favorite Movies");

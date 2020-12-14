@@ -32,6 +32,7 @@ describe("Actor Page", () => {
         cy.visit("./");
         cy.wait(10000);
         cy.get("nav").find("nav").find("Button").eq(1).click();
+        cy.wait(10000)
         cy.contains("ActorPage").click();
       });
  

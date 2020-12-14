@@ -18,8 +18,9 @@ describe("nowplaying page",() => {
 
   beforeEach(() => {
     cy.visit("./");
-    cy.wait(10000)
+    cy.wait(5000);
     cy.get("nav").find("nav").find("Button").eq(0).click();
+    cy.wait(2000)
     cy.contains("Nowplaying").click();
   });
   describe("nowplayingpage test", () => {
@@ -52,7 +53,8 @@ describe("Filtering", () => {
 describe("Button",() =>{
 it("add nowplaying movies" , () => {
   cy.get(".card").eq(0).find("button").click();
-  cy.get("nav").find("nav").find("Button").eq(2).click();
+  cy.get("nav").find("nav").find("Button").eq(2).wait(1000).click();
+  cy.wait(2000)
   cy.contains("WatchList").click();
   cy.get("h2").contains("Watch List Movies");
   cy.get(".card").each(($card) => {
