@@ -1,26 +1,49 @@
-import React,{ Suspense } from "react";
+import React,{ lazy,Suspense } from "react";
 import ReactDOM from "react-dom";
-import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import HomePage from "./pages/homePage";
-import MoviePage from './pages/movieDetailsPage'
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom"    // CHANGED
-import FavoriteMoviesPage from './pages/favoritesMoviesPage'       // NEW
-import MovieReviewPage from "./pages/movieReviewPage";
-import SiteHeader from './components/siteHeader'
-import UpcomingMoviesPage from './pages/upcomingMoviesPage'
-import MoviesContextProvider from "./contexts/moviesContext";
-import GenresContextProvider from "./contexts/genresContext";
-import AddMovieReviewPage from './pages/addMovieReviewPage'
-import WatchListMoviesPage from './pages/watchListPage'
-import ActorListPage from './pages/actorPage';
-import ActorsContextProvider from "./contexts/actorsContext";
-import NowplayingMovieListPage from "./pages/nowplayingPage";
-import ActorPage from './pages/actorDetailsPage';
-import CombinedCreditsPage from './pages/combinedCreditsPage';
 import { FirebaseAppProvider } from 'reactfire';
 import firebaseConfig from './firebaseConfig';
-import LoginPage from './pages/loginPage'
-import Signup from "./components/authorization/signUp";
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+//providers
+import MoviesContextProvider from "./contexts/moviesContext";
+import GenresContextProvider from "./contexts/genresContext";
+import ActorsContextProvider from "./contexts/actorsContext";
+// import HomePage from "./pages/homePage";
+// import MoviePage from './pages/movieDetailsPage'
+// import FavoriteMoviesPage from './pages/favoritesMoviesPage'  
+// import MovieReviewPage from "./pages/movieReviewPage";
+// import SiteHeader from './components/siteHeader'
+// import UpcomingMoviesPage from './pages/upcomingMoviesPage'
+// import AddMovieReviewPage from './pages/addMovieReviewPage'
+// import WatchListMoviesPage from './pages/watchListPage'
+// import ActorListPage from './pages/actorPage';
+// import NowplayingMovieListPage from "./pages/nowplayingPage";
+// import ActorPage from './pages/actorDetailsPage';
+// import CombinedCreditsPage from './pages/combinedCreditsPage';
+// import LoginPage from './pages/loginPage'
+// import Signup from "./components/authorization/signUp";
+
+//pages
+const HomePage = lazy(() => import("./pages/homePage"))
+const MoviePage = lazy(() => import("./pages/movieDetailsPage"))
+const FavoriteMoviesPage = lazy(() => import("./pages/favoritesMoviesPage"))
+const MovieReviewPage = lazy(() => import("./pages/movieReviewPage"))
+const UpcomingMoviesPage = lazy(() => import("./pages/upcomingMoviesPage"))
+const AddMovieReviewPage = lazy(() => import("./pages/addMovieReviewPage"))
+const WatchListMoviesPage = lazy(() => import("./pages/watchListPage"))
+const ActorListPage = lazy(() => import("./pages/actorPage"))
+const NowplayingMovieListPage = lazy(() => import("./pages/nowplayingPage"))
+const ActorPage = lazy(() => import("./pages/actorDetailsPage"))
+const CombinedCreditsPage = lazy(() => import("./pages/combinedCreditsPage"))
+const LoginPage = lazy(() => import("./pages/loginPage"))
+//components
+const Signup = lazy(() => import("./components/authorization/signUp"))
+const SiteHeader = lazy(() => import("./components/siteHeader"))
+
+
+
+
+
 
 
 
