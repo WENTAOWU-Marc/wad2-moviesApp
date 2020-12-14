@@ -1,5 +1,5 @@
 {
-  "name": "moviesApp",
+  "name": "moviesapp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,12 +18,13 @@
     "reactfire": "^3.0.0-rc.0"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "storybook": "start-storybook -s ./public -p 6006 -c ./.storybook",
     "start": "react-scripts start",
-    "start:ci": "start-server-and-test 'http-server ./build  -p 3000' 3000 'cypress run --browser chrome --record'",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start:ci": "start-server-and-test 'http-server ./build  -p 3000' 3000 "
   },
   "eslintConfig": {
     "extends": "react-app"
