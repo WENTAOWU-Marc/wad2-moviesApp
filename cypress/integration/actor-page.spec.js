@@ -31,7 +31,7 @@ describe("Actor Page", () => {
     beforeEach(() => {
         cy.visit("./");
         cy.wait(3000);
-        cy.get("nav").find("nav").find("Button").eq(1).click();
+        cy.get("nav").find("nav").find("Button").eq(1).trigger('mouseover');
         cy.wait(1000);
         cy.contains("ActorPage").click();
       });

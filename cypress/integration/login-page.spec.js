@@ -26,11 +26,12 @@ describe ("Login Page", () =>{
         cy.get("nav").find("nav").eq(2).click();
         cy.wait(2000);
         cy.get("a").eq(2).click();
-        cy.wait(5000)
+        cy.wait(3000)
         cy.get("input").eq(0).type(nickname);
         cy.get("input").eq(1).type(email);
         cy.get("input").eq(2).type(password);
         cy.get("button").eq(3).click();
+        cy.wait(2000);
         cy.get("h4").should("have.text","The email address is already in use by another account.");
       });
     });

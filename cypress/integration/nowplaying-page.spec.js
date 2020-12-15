@@ -18,7 +18,7 @@ describe("nowplaying page",() => {
 
   beforeEach(() => {
     cy.visit("./");
-    cy.get("nav").find("nav").find("Button").eq(0).click();
+    cy.get("nav").find("nav").find("Button").eq(0).trigger('mouseover');
     cy.wait(2000)
     cy.contains("Nowplaying").click();
   });
@@ -52,7 +52,7 @@ describe("Filtering", () => {
 describe("Button",() =>{
 it("add nowplaying movies" , () => {
   cy.get(".card").eq(0).find("button").click();
-  cy.get("nav").find("nav").find("Button").eq(2).wait(1000).click();
+  cy.get("nav").find("nav").find("Button").eq(2).wait(1000).trigger('mouseover');
   cy.wait(2000)
   cy.contains("WatchList").click();
   cy.get("h2").contains("Watch List Movies");
