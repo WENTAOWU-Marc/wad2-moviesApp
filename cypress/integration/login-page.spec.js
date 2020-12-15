@@ -25,13 +25,13 @@ describe ("Authorization Page", () =>{
       it("should display sign up page", () => {
         cy.get("nav").find("nav").eq(2).click();
         cy.wait(2000);
-        cy.get(".signup").click();
+        // cy.get(".signup").click();
         // cy.get("h1").should("have.text","Sign up");
       });
       it("should not sign up with an existing account", () =>{
         cy.get("nav").find("nav").eq(2).click();
         cy.wait(2000);
-        cy.get(".signup").wait(1000).click();
+        // cy.get(".signup").wait(1000).click();
         // cy.wait(3000);
         // cy.get("input").eq(0).type(nickname);
         // cy.get("input").eq(1).type(email);
