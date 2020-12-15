@@ -19,18 +19,27 @@ const reducer = (state, action) => {
         m.id === action.payload.upcoming.id ? { ...m, upcoming: true } : m
       ),
       movies: [...state.movies],
-      nowplaying: [...state.nowplaying],
+      nowplaying:[...state.nowplaying],
+      };
+    case "add-nwatchlist":
+      return{
+         nowplaying: state.nowplaying.map((n) =>
+         n.id === action.payload.nowplaying.id ? {...n, nowplaying: true} : n
+         ),
+         movies: [...state.movies],
+         upcoming:[...state.upcoming],
       };
     case "load":
       return { movies: action.payload.movies, upcoming: [...state.upcoming], 
-        // nowplaying: [...state.nowplaying] 
+        nowplaying: [...state.nowplaying] 
       };
     case "load-upcoming":
       return { upcoming: action.payload.upcoming, movies: [...state.movies], 
-        // nowplaying: [...state.nowplaying]
+        nowplaying: [...state.nowplaying]
       };
     case "load-nowplaying":
-      return { nowplaying: action.payload.nowplaying, movies: [...state.movies],upcoming: [...state.upcoming]}
+      return { nowplaying: action.payload.nowplaying, movies: [...state.movies],upcoming: [...state.upcoming]
+      };
     case "add-review":
       return {
         movies: state.movies.map((m) =>
@@ -63,6 +72,11 @@ const MoviesContextProvider = (props) => {
     dispatch({ type: "add-review", payload: { movie, review } });
   };
 
+  const addToNwatchList = (movieId) => {
+    const index = state.nowplaying.map((n) => n.id).indexOf(movieId);
+    dispatch({ type: "add-nwatchlist", payload: { nowplaying: state.nowplaying[index] } });
+  }
+
   useEffect(() => {
     getMovies().then((movies) => {
       dispatch({ type: "load", payload: { movies } });
@@ -93,6 +107,7 @@ const MoviesContextProvider = (props) => {
         addToFavorites: addToFavorites,
         addReview: addReview,
         addToWatchList: addToWatchList,
+        addToNwatchList :addToNwatchList,
       }}
     >
       {props.children}

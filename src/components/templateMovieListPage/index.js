@@ -9,7 +9,7 @@ const MovieListPageTemplate = ({ movies, title, action }) => {
   const genre = Number(genreFilter)
   let displayedMovies = movies
     .filter(m => {
-      return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
+      return  m.title!==undefined && m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1 && m.poster_path;
     })
     .filter(m => {
       return  genre > 0
