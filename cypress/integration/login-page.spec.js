@@ -4,7 +4,7 @@ let email = "872257263@qq.com";
 let wrongemail = "123@qq.com";
 let password = "123321";
 
-describe ("Login Page", () =>{
+describe ("Authorization Page", () =>{
     before(() => {
         cy.request(
             `https://api.themoviedb.org/3/discover/movie?api_key=${Cypress.env(
@@ -25,14 +25,13 @@ describe ("Login Page", () =>{
       it("should display sign up page", () => {
         cy.get("nav").find("nav").eq(2).click();
         cy.wait(2000);
-        cy.get("a").eq(2).click();
+        cy.get(".signup").wait(1000).click();
         cy.get("h1").should("have.text","Sign up");
-        
       });
       it("should not sign up with an existing account", () =>{
         cy.get("nav").find("nav").eq(2).click();
         cy.wait(2000);
-        cy.get("a").eq(2).click();
+        cy.get(".signup").wait(1000).click();
         cy.wait(3000);
         cy.get("input").eq(0).type(nickname);
         cy.get("input").eq(1).type(email);
@@ -42,8 +41,7 @@ describe ("Login Page", () =>{
         cy.wait(2000);
         cy.get("h4").should("have.text","The email address is already in use by another account.");
       });
-    });
-    
+});
     describe("Login Test",() =>{
       it("can't login with an illegal account", () =>{
         cy.wait(3000);
@@ -77,4 +75,4 @@ describe ("Login Page", () =>{
         cy.get(".badge").contains(20);
       });
   });
-});
+ });
