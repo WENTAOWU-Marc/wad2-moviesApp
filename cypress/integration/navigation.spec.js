@@ -46,7 +46,7 @@ describe("Navigation", () => {
       cy.url().should("not.include", `/favorites`);
       cy.get("h2").contains("Upcoming Movies");
       cy.get("nav").find("nav").find("Button").eq(0).trigger('mouseover');
-      cy.contains("HomePage").click();
+      cy.contains("HomePage").wait(1000).click();
       cy.url().should("not.include", `/favorites`);
       cy.get("h2").contains("No. Movies");
     });

@@ -47,7 +47,6 @@ describe("Actor Page", () => {
       it("displays the correct details", () => {
         cy.wait(1000);
         cy.get("nav").find("nav").find("Button").eq(1).trigger('mouseover');
-        cy.wait(1000);
         cy.contains("ActorPage").click();
         cy.get(".card").eq(2).find("img").click();
         cy.get("h2").contains(actor.name);
