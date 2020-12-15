@@ -37,7 +37,7 @@ describe("Navigation", () => {
     });
     it("should allow navigation from site header", () => {
       cy.get("nav").find("nav").find("Button").eq(2).trigger('mouseover');
-      cy.wait(2000);
+      cy.wait(1000);
       cy.contains("Favourite").click();
       cy.url().should("include", `/favorites`);
       cy.get("h2").contains("Favorite Movies");
@@ -72,11 +72,12 @@ describe("Navigation", () => {
   describe("From the Favorites page", () => {
     beforeEach(() => {
       cy.visit("/");
+      cy.wait(2000);
+    });
+    it("should navigate to the movies detail page and change the browser URL", () => {
       cy.get(".card").eq(0).find("button").click();
       cy.get("nav").find("nav").find("Button").eq(2).trigger('mouseover');
       cy.contains("Favourite").click();
-    });
-    it("should navigate to the movies detail page and change the browser URL", () => {
       cy.get(".card").eq(0).find("img").click();
       cy.url().should("include", `/movies/${movies[0].id}`);
       cy.get("h2").contains(movies[0].title);

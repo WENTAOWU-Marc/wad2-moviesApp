@@ -30,7 +30,7 @@ describe ("Login Page", () =>{
         cy.get("input").eq(0).type(nickname);
         cy.get("input").eq(1).type(email);
         cy.get("input").eq(2).type(password);
-        cy.get("button").eq(3).click();
+        cy.get("button").eq(3).wait(1000).click();
         cy.wait(2000);
         cy.get("h4").should("have.text","The email address is already in use by another account.");
       });

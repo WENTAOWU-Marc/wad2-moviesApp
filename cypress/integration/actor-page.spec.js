@@ -30,29 +30,37 @@ describe("Actor Page", () => {
       
     beforeEach(() => {
         cy.visit("./");
-        cy.wait(3000);
-        cy.get("nav").find("nav").find("Button").eq(1).trigger('mouseover');
-        cy.wait(1000);
-        cy.contains("ActorPage").click();
       });
  
     describe("Actor page test",() => {
         it("displays page header", () => {
+          cy.wait(1000);
+          cy.get("nav").find("nav").find("Button").eq(1).trigger('mouseover');
+          cy.wait(1000);
+          cy.contains("ActorPage").click();
           cy.get("h2").contains("No. Actors");
           cy.get(".badge").contains(20);
         });
     });
 
     describe("Actor detail page test",() => {
-        it("displays the correct details", () => {
-          cy.get(".card").eq(2).find("img").click();
-          cy.get("h2").contains(actor.name);
-          cy.get("h4").contains("Biography");
-        });
+      it("displays the correct details", () => {
+        cy.wait(1000);
+        cy.get("nav").find("nav").find("Button").eq(1).trigger('mouseover');
+        cy.wait(1000);
+        cy.contains("ActorPage").click();
+        cy.get(".card").eq(2).find("img").click();
+        cy.get("h2").contains(actor.name);
+        cy.get("h4").contains("Biography");
+      });
     }); 
 
     describe("Actor Combined Credits test",() =>{
        it("should display actor's combined credits", () =>{
+        cy.wait(1000);
+        cy.get("nav").find("nav").find("Button").eq(1).trigger('mouseover');
+        cy.wait(1000);
+        cy.contains("ActorPage").click();
         cy.get(".card").eq(0).find("a.btn").click();
         cy.get("h2").contains("Combined Credits");
        });
