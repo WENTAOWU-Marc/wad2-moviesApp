@@ -21,8 +21,9 @@ describe("nowplaying page",() => {
   });
   describe("nowplayingpage test", () => {
     it("displays page header", () => {
-      cy.get("nav").find("nav").find("Button").eq(0).trigger('mouseover');
       cy.wait(2000)
+      cy.get("nav").find("nav").find("Button").eq(0).trigger('mouseover');
+      cy.wait(1000)
       cy.contains("Nowplaying").click();
       cy.get("h2").contains("No. NowplayingMovies");
       cy.get(".badge").contains(20);
@@ -31,8 +32,9 @@ describe("nowplaying page",() => {
 describe("Filtering", () => {
   describe("By movie title" ,() => {
     it("should display movies with in the title", () => {
-      cy.get("nav").find("nav").find("Button").eq(0).trigger('mouseover');
       cy.wait(2000)
+      cy.get("nav").find("nav").find("Button").eq(0).trigger('mouseover');
+      cy.wait(1000)
       cy.contains("Nowplaying").click();
       const searchString = 'fat'
       const matchingMovies = filterByTitle(nowplaying, searchString );
