@@ -1,6 +1,7 @@
 import React, { useState } from 'react' ;
 import { useFirebaseApp } from 'reactfire' ;
 import 'firebase/auth'
+import { Link } from 'react-router-dom';
 // import './Signup.css' ;\
  
 const Login = () => {
@@ -85,9 +86,11 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Email" name="email" onChange={handleChange}/><br />
         <input type="password" placeholder="Password" name="password" onChange={handleChange}/><br />
-        <button type="submit">Log in</button>
+        <button type="submit">Login</button>
       </form>
-      <a href="/signup" className="signup">sign up</a>
+      <Link to='./signup'> 
+        <button>Sign up</button>
+      </Link>
       {user.error && <h4>{user.error}</h4>}
     </>
   )
