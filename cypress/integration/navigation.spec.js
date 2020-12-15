@@ -28,7 +28,7 @@ describe("Navigation", () => {
   describe("From the home page", () => {
     beforeEach(() => {
       cy.visit("./");
-      // cy.wait(10000)
+      cy.wait(2000);
     });
     it("should navigate to the movie details page and change browser URL", () => {
       cy.get(".card").eq(1).find("img").click();
@@ -37,7 +37,7 @@ describe("Navigation", () => {
     });
     it("should allow navigation from site header", () => {
       cy.get("nav").find("nav").find("Button").eq(2).click();
-      cy.wait(3000);
+      cy.wait(2000);
       cy.contains("Favourite").click();
       cy.url().should("include", `/favorites`);
       cy.get("h2").contains("Favorite Movies");

@@ -24,6 +24,7 @@ describe ("Login Page", () =>{
     describe("Sign up Test",() => {
       it("can't sign up with an existing account", () => {
         cy.get("nav").find("nav").eq(2).click();
+        cy.wait(2000);
         cy.get("a").eq(2).click();
         cy.wait(5000)
         cy.get("input").eq(0).type(nickname);
@@ -38,6 +39,7 @@ describe ("Login Page", () =>{
       it("can't login with an illegal account", () =>{
         cy.wait(3000);
         cy.get("nav").find("nav").eq(2).click();
+        cy.wait(2000);
         cy.get("input").eq(0).type(wrongemail);
         cy.get("input").eq(1).type(password);
         cy.get("button").eq(3).click();
@@ -60,6 +62,7 @@ describe ("Login Page", () =>{
       it("can logout when user has loged in", () =>{
         cy.wait(1000);
         cy.get("nav").find("nav").eq(2).click();
+        cy.wait(2000);
         cy.get("button").eq(3).click();
         cy.get("h2").contains("No. Movies");
         cy.get(".badge").contains(20);
